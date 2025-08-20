@@ -1,40 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eslam Mohamed | Real Estate Broker</title>
-
-  <!-- Luxury fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <meta name="description" content="Eslam Mohamed — Luxury Real Estate Broker in Ain Sokhna, North Coast & New Cairo." />
-  <meta property="og:title" content="Eslam Mohamed | Real Estate Broker" />
-  <meta property="og:description" content="Coastal & residential properties across Egypt." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="profile.jpg" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إسلام محمد | وسيط عقاري</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg1:#0B1220; --bg2:#0E1A2F; --gold:#D4AF37; --gold-2:#E8C766; --ink:#0b1220; --muted:#C9D3DF;
-      --card:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.12);
+      --gold:#D4AF37; --gold2:#E6C76D;
+      --ink:#0b1220; --light:#f7f9fc;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:#fff;
-      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 80% -20%, rgba(212,175,55,.15), transparent 60%),
-        radial-gradient(900px 500px at -10% 120%, rgba(232,199,102,.12), transparent 55%),
-        linear-gradient(135deg,var(--bg1),var(--bg2));
-      display:flex; align-items:center; justify-content:center; padding:28px;
+    body{margin:0; font-family:"Cairo",sans-serif; background:#0B1220; color:#fff;}
+    .nav{position:sticky;top:0;background:rgba(10,16,28,.7);backdrop-filter:blur(6px);z-index:50;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{color:var(--gold);font-weight:800}
+    .menu a{margin:0 10px;text-decoration:none;color:#eee;font-weight:700}
+    .menu a:hover{color:var(--gold)}
+    .lang{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:30px;padding:5px 12px;font-weight:700;cursor:pointer}
+    .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(0deg,rgba(11,18,32,.6),rgba(11,18,32,.6)),url('hero.jpg') center/cover no-repeat;padding:40px 20px}
+    .hero h1{font-size:clamp(26px,5vw,56px);font-weight:800;margin:0;color:#fff}
+    .hero p{margin-top:10px;font-size:20px;color:var(--gold2);font-weight:700}
+    .areas{margin-top:10px;font-size:16px;color:#ddd}
+    .cta{margin-top:25px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px}
+    .btn{display:flex;align-items:center;gap:8px;text-decoration:none;padding:12px 20px;border-radius:30px;font-weight:700;border:1px solid var(--gold);color:var(--gold);transition:.3s}
+    .btn:hover{background:var(--gold);color:var(--ink)}
+    .btn svg{width:18px;height:18px}
+    .form-box{margin-top:30px;background:rgba(255,255,255,.1);padding:20px;border-radius:12px;display:inline-block}
+    select{padding:10px 15px;border-radius:8px;border:1px solid #ccc;min-width:200px}
+    footer{text-align:center;padding:15px;color:#aaa;background:#0B1220;border-top:1px solid rgba(255,255,255,.1)}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand" data-i="brand">Eslam Realty</div>
+    <div class="menu">
+      <a href="#" data-i="navHome">الرئيسية</a>
+      <a href="#services" data-i="navServices">خدماتنا</a>
+      <a href="#contact" data-i="navContact">تواصل معنا</a>
+      <button id="lang" class="lang">AR / EN</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1 data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <p data-i="heroSub">خدمة مميزة للبيع والشراء في أرقى المواقع</p>
+      <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+      <div class="cta">
+        <a class="btn" href="tel:+201050072527">
+          📞 <span data-i="btnCall">اتصال مباشر</span>
+        </a>
+        <a class="btn" href="https://wa.me/201050072527?text=اهلا%20مهتم%20بعقار">
+          💬 <span data-i="btnWhatsApp">استشارة واتساب</span>
+        </a>
+      </div>
+      <div class="form-box">
+        <label for="interest" data-i="formLabel">اختر اهتمامك:</label><br>
+        <select id="interest">
+          <option value="sokhna">العين السخنة</option>
+          <option value="northcoast">الساحل الشمالي</option>
+          <option value="cairo">القاهرة الجديدة</option>
+        </select>
+        <div style="margin-top:15px">
+          <a id="goWhatsApp" class="btn" href="#" target="_blank" data-i="formBtn">تابع على واتساب</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="y"></span> Eslam Realty</footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // interest select -> update WhatsApp link
+    const select = document.getElementById('interest');
+    const goBtn = document.getElementById('goWhatsApp');
+    select.addEventListener('change',()=>{
+      let msg = "مهتم بعقار في ";
+      if(select.value==="sokhna") msg+="العين السخنة";
+      if(select.value==="northcoast") msg+="الساحل الشمالي";
+      if(select.value==="cairo") msg+="القاهرة الجديدة";
+      goBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
+    });
+    select.dispatchEvent(new Event('change'));
+
+    // language toggle
+    const dict={
+      ar:{
+        brand:"Eslam Realty",
+        navHome:"الرئيسية",navServices:"خدماتنا",navContact:"تواصل معنا",
+        heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
+        heroSub:"خدمة مميزة للبيع والشراء في أرقى المواقع",
+        heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
+        btnCall:"اتصال مباشر",btnWhatsApp:"استشارة واتساب",
+        formLabel:"اختر اهتمامك:",formBtn:"تابع على واتساب"
+      },
+      en:{
+        brand:"Eslam Realty",
+        navHome:"Home",navServices:"Services",navContact:"Contact",
+        heroTitle:"Turn your property investment into a luxury experience",
+        heroSub:"Premium service for buying & selling in prime locations",
+        heroAreas:"Ain Sokhna • North Coast • New Cairo",
+        btnCall:"Call Now",btnWhatsApp:"WhatsApp Consultation",
+        formLabel:"Select your interest:",formBtn:"Continue on WhatsApp"
+      }
+    };
+    let lang="ar";
+    function setLang(l){
+      lang=l;
+      const map=dict[l];
+      document.querySelectorAll("[data-i]").forEach(el=>{
+        const key=el.getAttribute("data-i");
+        if(map[key]) el.textContent=map[key];
+      });
+      document.documentElement.lang=l;
+      document.documentElement.dir=(l==="ar"?"rtl":"ltr");
     }
-    .card{
-      width:min(980px,96%); text-align:center; padding:34px 22px 22px;
-      background:var(--card); border:1px solid var(--stroke); backdrop-filter:blur(8px);
-      border-radius:26px; box-shadow:0 18px 50px rgba(0,0,0,.45);
-    }
+    document.getElementById("lang").addEventListener("click",()=>setLang(lang==="ar"?"en":"ar"));
+  </script>
+</body>
+</html>    }
     .top{
       display:flex; gap:16px; justify-content:flex-end; margin-bottom:8px;
     }
