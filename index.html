@@ -1,317 +1,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>إسلام محمد | وسيط عقاري</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
     :root{
-      --gold:#D4AF37; --gold2:#E6C76D;
-      --ink:#0b1220; --light:#f7f9fc;
+      --bg:#0b1220; --nav:#0f1a2e; --gold:#d4af37; --gold2:#e6c76d; --ink:#0b1220; --muted:#c9d3df;
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family:"Cairo",sans-serif; background:#0B1220; color:#fff;}
-    .nav{position:sticky;top:0;background:rgba(10,16,28,.7);backdrop-filter:blur(6px);z-index:50;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{color:var(--gold);font-weight:800}
-    .menu a{margin:0 10px;text-decoration:none;color:#eee;font-weight:700}
+    html,body{height:100%}
+    body{margin:0; font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:#fff}
+
+    /* Header */
+    .nav{position:sticky; top:0; z-index:50; background:rgba(15,26,46,.85); border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter:blur(8px)}
+    .nav-inner{max-width:1200px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
+    .brand{font-weight:800; color:var(--gold)}
+    .spacer{flex:1}
+    .menu{display:flex; gap:18px; align-items:center}
+    .menu a{color:#e8edf5; text-decoration:none; font-weight:700}
     .menu a:hover{color:var(--gold)}
-    .lang{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:30px;padding:5px 12px;font-weight:700;cursor:pointer}
-    .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(0deg,rgba(11,18,32,.6),rgba(11,18,32,.6)),url('hero.jpg') center/cover no-repeat;padding:40px 20px}
-    .hero h1{font-size:clamp(26px,5vw,56px);font-weight:800;margin:0;color:#fff}
-    .hero p{margin-top:10px;font-size:20px;color:var(--gold2);font-weight:700}
-    .areas{margin-top:10px;font-size:16px;color:#ddd}
-    .cta{margin-top:25px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px}
-    .btn{display:flex;align-items:center;gap:8px;text-decoration:none;padding:12px 20px;border-radius:30px;font-weight:700;border:1px solid var(--gold);color:var(--gold);transition:.3s}
-    .btn:hover{background:var(--gold);color:var(--ink)}
-    .btn svg{width:18px;height:18px}
-    .form-box{margin-top:30px;background:rgba(255,255,255,.1);padding:20px;border-radius:12px;display:inline-block}
-    select{padding:10px 15px;border-radius:8px;border:1px solid #ccc;min-width:200px}
-    footer{text-align:center;padding:15px;color:#aaa;background:#0B1220;border-top:1px solid rgba(255,255,255,.1)}
+    .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
+
+    /* Hero */
+    .hero{position:relative; min-height:78vh; display:grid; place-items:center;
+      background:
+        linear-gradient(0deg, rgba(11,18,32,.65), rgba(11,18,32,.65)),
+        url('hero.jpg') center/cover no-repeat;}
+    .hero-inner{max-width:1050px; padding:48px 18px; text-align:center}
+    .title{font-weight:800; line-height:1.2; font-size:clamp(28px,6vw,64px); color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .subtitle{margin-top:10px; font-weight:800; font-size:clamp(16px,2.8vw,26px); color:var(--gold2)}
+    .areas{margin-top:10px; color:#e9eef4; opacity:.9; font-weight:700}
+
+    /* Buttons */
+    .cta{margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:900; letter-spacing:.3px;
+      border:1px solid var(--gold); color:var(--gold); background:transparent; transition:.25s;
+    }
+    .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
+    .btn i{font-size:16px}
+
+    /* Interest box */
+    .box{margin:28px auto 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:20px; max-width:560px}
+    .box label{display:block; margin-bottom:10px; font-weight:800}
+    .select{
+      width:100%; appearance:none; background:#0f1a2e; color:#fff; border:1px solid #2c3b57;
+      padding:12px 14px; border-radius:12px; font-weight:700;
+    }
+
+    /* Footer */
+    footer{ text-align:center; padding:16px; color:#b9c5d3; border-top:1px solid rgba(255,255,255,.08); background:var(--bg) }
+    .social{margin-top:8px; display:flex; gap:10px; justify-content:center}
+    .social a{ color:var(--gold); font-size:18px; text-decoration:none }
+    .social a:hover{ color:#fff }
+
+    @media (prefers-color-scheme:light){
+      body{color:#111827}
+      .nav{background:#ffffffcc; border-color:#e5e7eb}
+      .menu a{color:#111827}
+      .title{color:#0b1220}
+    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header class="nav">
-    <div class="brand" data-i="brand">Eslam Realty</div>
-    <div class="menu">
-      <a href="#" data-i="navHome">الرئيسية</a>
-      <a href="#services" data-i="navServices">خدماتنا</a>
-      <a href="#contact" data-i="navContact">تواصل معنا</a>
-      <button id="lang" class="lang">AR / EN</button>
+    <div class="nav-inner">
+      <div class="brand" data-i="brand">Eslam Realty</div>
+      <div class="spacer"></div>
+      <nav class="menu">
+        <a href="#" data-i="navHome">الرئيسية</a>
+        <a href="#services" data-i="navServices">خدماتنا</a>
+        <a href="#contact" data-i="navContact">تواصل معنا</a>
+        <button id="lang" class="lang" aria-label="Toggle language">AR / EN</button>
+      </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <div>
-      <h1 data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
-      <p data-i="heroSub">خدمة مميزة للبيع والشراء في أرقى المواقع</p>
+    <div class="hero-inner">
+      <h1 class="title" data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <div class="subtitle" data-i="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
       <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+
       <div class="cta">
-        <a class="btn" href="tel:+201050072527">
-          📞 <span data-i="btnCall">اتصال مباشر</span>
-        </a>
-        <a class="btn" href="https://wa.me/201050072527?text=اهلا%20مهتم%20بعقار">
-          💬 <span data-i="btnWhatsApp">استشارة واتساب</span>
-        </a>
+        <a class="btn" id="btn-call" href="tel:+201050072527"><i class="fa-solid fa-phone"></i><span data-i="btnCall">اتصال مباشر</span></a>
+        <a class="btn" id="btn-wa" href="https://wa.me/201050072527?text=%D8%A7%D9%87%D9%84%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
+        <a class="btn" id="btn-mail" href="mailto:yourmail@example.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
       </div>
-      <div class="form-box">
-        <label for="interest" data-i="formLabel">اختر اهتمامك:</label><br>
-        <select id="interest">
-          <option value="sokhna">العين السخنة</option>
+
+      <div class="box">
+        <label for="interest" data-i="formLabel">اختر اهتمامك:</label>
+        <select id="interest" class="select">
+          <option value="sokhna" selected>العين السخنة</option>
           <option value="northcoast">الساحل الشمالي</option>
           <option value="cairo">القاهرة الجديدة</option>
         </select>
-        <div style="margin-top:15px">
-          <a id="goWhatsApp" class="btn" href="#" target="_blank" data-i="formBtn">تابع على واتساب</a>
+        <div class="cta" style="margin-top:16px">
+          <a id="goWhatsApp" class="btn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="formBtn">تابع على واتساب</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>© <span id="y"></span> Eslam Realty</footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // interest select -> update WhatsApp link
-    const select = document.getElementById('interest');
-    const goBtn = document.getElementById('goWhatsApp');
-    select.addEventListener('change',()=>{
-      let msg = "مهتم بعقار في ";
-      if(select.value==="sokhna") msg+="العين السخنة";
-      if(select.value==="northcoast") msg+="الساحل الشمالي";
-      if(select.value==="cairo") msg+="القاهرة الجديدة";
-      goBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
-    });
-    select.dispatchEvent(new Event('change'));
-
-    // language toggle
-    const dict={
-      ar:{
-        brand:"Eslam Realty",
-        navHome:"الرئيسية",navServices:"خدماتنا",navContact:"تواصل معنا",
-        heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
-        heroSub:"خدمة مميزة للبيع والشراء في أرقى المواقع",
-        heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
-        btnCall:"اتصال مباشر",btnWhatsApp:"استشارة واتساب",
-        formLabel:"اختر اهتمامك:",formBtn:"تابع على واتساب"
-      },
-      en:{
-        brand:"Eslam Realty",
-        navHome:"Home",navServices:"Services",navContact:"Contact",
-        heroTitle:"Turn your property investment into a luxury experience",
-        heroSub:"Premium service for buying & selling in prime locations",
-        heroAreas:"Ain Sokhna • North Coast • New Cairo",
-        btnCall:"Call Now",btnWhatsApp:"WhatsApp Consultation",
-        formLabel:"Select your interest:",formBtn:"Continue on WhatsApp"
-      }
-    };
-    let lang="ar";
-    function setLang(l){
-      lang=l;
-      const map=dict[l];
-      document.querySelectorAll("[data-i]").forEach(el=>{
-        const key=el.getAttribute("data-i");
-        if(map[key]) el.textContent=map[key];
-      });
-      document.documentElement.lang=l;
-      document.documentElement.dir=(l==="ar"?"rtl":"ltr");
-    }
-    document.getElementById("lang").addEventListener("click",()=>setLang(lang==="ar"?"en":"ar"));
-  </script>
-</body>
-</html>    }
-    .top{
-      display:flex; gap:16px; justify-content:flex-end; margin-bottom:8px;
-    }
-    .lang{
-      border:1px solid var(--gold); color:var(--gold); background:transparent;
-      border-radius:999px; padding:8px 14px; font-weight:700; cursor:pointer;
-      letter-spacing:.4px;
-    }
-    .avatar{
-      width:150px; height:150px; border-radius:50%; object-fit:cover;
-      display:block; margin:0 auto 12px; border:3px solid var(--gold);
-      box-shadow:0 0 0 6px rgba(212,175,55,.12);
-    }
-    h1{
-      font-family:"Playfair Display", serif; font-weight:700; margin:8px 0 6px;
-      font-size:2.4rem; color:var(--gold-2); letter-spacing:.3px;
-    }
-    .subtitle{
-      font-weight:600; color:#E6EDF5; opacity:.95; margin-bottom:10px;
-    }
-    .tags{margin:6px 0 16px}
-    .tag{
-      display:inline-block; margin:.2rem .3rem; padding:.42rem .75rem;
-      border:1px solid var(--gold); color:var(--gold); border-radius:999px; font-weight:700; font-size:.95rem;
-      background:linear-gradient(180deg, rgba(212,175,55,.10), rgba(212,175,55,.02));
-    }
-    .bio{
-      max-width:760px; margin:0 auto 18px; color:#DCE5EF; line-height:1.9; font-size:1.06rem;
-    }
-    .actions{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:8px}
-    .btn{
-      text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:800; letter-spacing:.3px;
-      border:1px solid var(--gold); color:var(--gold); background:transparent; transition:.25s;
-    }
-    .btn:hover{ background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
-    .fine{margin-top:16px; color:var(--muted); font-size:.92rem}
-    footer{margin-top:10px; color:#9FB0C3; font-size:.9rem}
-    @media (prefers-color-scheme:light){
-      body{color:#111827}
-      .card{background:#fff; border-color:#e5e7eb}
-      .btn:hover{color:#111827}
-    }
-  </style>
-</head>
-<body>
-  <main class="card" aria-label="Profile">
-    <div class="top">
-      <button id="lang" class="lang" aria-label="Toggle language">AR / EN</button>
+  <!-- Footer -->
+  <footer id="contact">
+    <div>© <span id="y"></span> <span data-i="brand">Eslam Realty</span></div>
+    <div class="social">
+      <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="mailto:yourmail@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
     </div>
-
-    <img src="profile.jpg" class="avatar" alt="Eslam Mohamed" />
-
-    <h1 data-i="name">Eslam Mohamed</h1>
-    <div class="subtitle" data-i="role">Luxury Real Estate Broker</div>
-
-    <div class="tags">
-      <span class="tag" data-i="area1">Ain Sokhna</span>
-      <span class="tag" data-i="area2">North Coast</span>
-      <span class="tag" data-i="area3">New Cairo</span>
-    </div>
-
-    <p class="bio" data-i="bio">
-      Helping clients buy, sell, and invest in premium coastal & residential properties across Egypt.
-      Discreet service, sharp negotiation, and exceptional follow-through.
-    </p>
-
-    <div class="actions">
-      <a class="btn" href="tel:+201050072527">📞 <span data-i="call">Call</span></a>
-      <a class="btn" href="https://wa.me/201050072527?text=Hi%20Eslam%2C%20I%27m%20interested%20in%20a%20property." target="_blank" rel="noopener">💬 <span data-i="wa">WhatsApp</span></a>
-      <a class="btn" href="mailto:youremail@example.com?subject=Property%20Inquiry">✉️ <span data-i="email">Email</span></a>
-      <a class="btn" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
-      <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-    </div>
-
-    <div class="fine" data-i="note">
-      Tip: Update your real phone number, WhatsApp, email & social links inside this file.
-    </div>
-
-    <footer>© <span id="y"></span> <span data-i="name">Eslam Mohamed</span></footer>
-  </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    const dict = {
-      ar:{
-        name:"إسلام محمد",
-        role:"وسيط عقاري فاخر",
-        area1:"العين السخنة",
-        area2:"الساحل الشمالي",
-        area3:"القاهرة الجديدة",
-        bio:"أساعدك في شراء وبيع واستثمار العقارات الساحلية والسكنية الراقية في مصر. خدمة خاصة، تفاوض محترف، ومتابعة دقيقة.",
-        call:"اتصال",
-        wa:"واتساب",
-        email:"إيميل",
-        note:"ملحوظة: عدّل رقم الموبايل والواتساب والإيميل وروابط السوشيال من داخل هذا الملف."
-      },
-      en:{
-        name:"Eslam Mohamed",
-        role:"Luxury Real Estate Broker",
-        area1:"Ain Sokhna",
-        area2:"North Coast",
-        area3:"New Cairo",
-        bio:"Helping clients buy, sell, and invest in premium coastal & residential properties across Egypt. Discreet service, sharp negotiation, and exceptional follow-through.",
-        call:"Call",
-        wa:"WhatsApp",
-        email:"Email",
-        note:"Tip: Update your real phone number, WhatsApp, email & social links inside this file."
-      }
-    };
-
-    let lang="en";
-    function setLang(l){
-      lang=l;
-      const map=dict[l];
-      document.querySelectorAll("[data-i]").forEach(el=>{
-        const key=el.getAttribute("data-i");
-        if(map[key]) el.textContent=map[key];
-      });
-      document.documentElement.lang = (l==="ar"?"ar":"en");
-      document.body.dir = (l==="ar"?"rtl":"ltr");
-    }
-    document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="en"?"ar":"en"));
-  </script>
-</body>
-</html>      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1 id="title">Eslam Mohamed</h1>
-    <p id="subtitle">Real Estate Broker</p>
-    <button onclick="switchLang('en')">English</button>
-    <button onclick="switchLang('ar')">العربية</button>
-  </header>
-
-  <div class="content">
-    <h2 id="about-title">About Me</h2>
-    <p id="about-text">
-      I am a professional real estate broker working in Ain Sokhna, North Coast, and New Cairo.
-      I help clients buy, sell, and invest in properties with trust and transparency.
-    </p>
-
-    <h2 id="contact-title">Contact</h2>
-    <p id="contact-text">
-      📞 Phone: 01050072527 <br>
-      📧 Email: yourmail@example.com <br>
-      💬 <a href="https://wa.me/201050072527" target="_blank">Chat on WhatsApp</a>
-    </p>
-  </div>
-
-  <footer>
-    <p id="footer-text">© 2025 Eslam Mohamed - All rights reserved.</p>
   </footer>
 
   <script>
-    function switchLang(lang) {
-      if(lang === 'ar') {
-        document.getElementById("title").innerText = "اسلام محمد";
-        document.getElementById("subtitle").innerText = "بروكر عقارات";
-        document.getElementById("about-title").innerText = "عنّي";
-        document.getElementById("about-text").innerText = 
-          "أنا سمسار عقارات محترف أعمل في العين السخنة والساحل الشمالي والقاهرة الجديدة. أساعد العملاء في الشراء والبيع والاستثمار بثقة وشفافية.";
-        document.getElementById("contact-title").innerText = "وسائل التواصل";
-        document.getElementById("contact-text").innerHTML = 
-          "📞 هاتف: 01050072527 <br> 📧 إيميل: yourmail@example.com <br> 💬 <a href='https://wa.me/201050072527' target='_blank'>تحدث عبر واتساب</a>";
-        document.getElementById("footer-text").innerText = "© 2025 اسلام محمد - جميع الحقوق محفوظة.";
-      } else {
-        document.getElementById("title").innerText = "Eslam Mohamed";
-        document.getElementById("subtitle").innerText = "Real Estate Broker";
-        document.getElementById("about-title").innerText = "About Me";
-        document.getElementById("about-text").innerText = 
-          "I am a professional real estate broker working in Ain Sokhna, North Coast, and New Cairo. I help clients buy, sell, and invest in properties with trust and transparency.";
-        document.getElementById("contact-title").innerText = "Contact";
-        document.getElementById("contact-text").innerHTML = 
-          "📞 Phone: 01050072527 <br> 📧 Email: yourmail@example.com <br> 💬 <a href='https://wa.me/201050072527' target='_blank'>Chat on WhatsApp</a>";
-        document.getElementById("footer-text").innerText = "© 2025 Eslam Mohamed - All rights reserved.";
-      }
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Interest -> WhatsApp message
+    const select = document.getElementById('interest');
+    const goBtn  = document.getElementById('goWhatsApp');
+    function updateWA(){
+      const map = {sokhna:"العين السخنة", northcoast:"الساحل الشمالي", cairo:"القاهرة الجديدة"};
+      const msg = "مهتم بعقار في " + map[select.value];
+      goBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
     }
+    select.addEventListener('change', updateWA);
+    updateWA();
+
+    // Language dictionary
+    const dict = {
+      ar:{
+        brand:"Eslam Realty",
+        navHome:"الرئيسية", navServices:"خدماتنا", navContact:"تواصل معنا",
+        heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
+        heroSub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
+        heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
+        btnCall:"اتصال مباشر", btnWhatsApp:"استشارة واتساب",
+        formLabel:"اختر اهتمامك:", formBtn:"تابع على واتساب"
+      },
+      en:{
+        brand:"Eslam Realty",
+        navHome:"Home", navServices:"Services", navContact:"Contact",
+        heroTitle:"Turn your property investment into a luxury experience",
+        heroSub:"Private service for buying, selling & investing in premium locations",
+        heroAreas:"Ain Sokhna • North Coast • New Cairo",
+        btnCall:"Call Now", btnWhatsApp:"WhatsApp Consultation",
+        formLabel:"Select your interest:", formBtn:"Continue on WhatsApp"
+      }
+    };
+
+    // Toggle language
+    let lang = "ar";
+    const $ = (s)=>document.querySelectorAll(s);
+    function setLang(l){
+      lang = l;
+      const map = dict[l];
+      $("[data-i]").forEach(el=>{
+        const k = el.getAttribute("data-i");
+        if(map[k]) el.textContent = map[k];
+      });
+      document.documentElement.lang = l==="ar" ? "ar":"en";
+      document.documentElement.dir  = l==="ar" ? "rtl":"ltr";
+    }
+    document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
   </script>
-</body>
-</html>    <div>
-      <a class="btn" href="tel:+201050072527">📞 Call</a>
-      <a class="btn" href="https://wa.me/201050072527?text=Hi%20Eslam%2C%20I'm%20interested%20in%20a%20property.">💬 WhatsApp</a>
-      <a class="btn" href="mailto:youremail@example.com?subject=Property%20Inquiry">✉️ Email</a>
-      <a class="btn" href="https://www.facebook.com/">Facebook</a>
-      <a class="btn" href="https://www.instagram.com/">Instagram</a>
-    </div>
-    <footer>© <span id="y"></span> Eslam Mohamed</footer>
-  </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
