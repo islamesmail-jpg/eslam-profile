@@ -1,41 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eslam Mohamed | Real Estate Broker</title>
-  <meta name="description" content="Eslam Mohamed — Real Estate Broker in Ain Sokhna, North Coast & New Cairo. Buy, sell & invest with confidence." />
-  <meta property="og:title" content="Eslam Mohamed | Real Estate Broker" />
-  <meta property="og:description" content="Serving Ain Sokhna, North Coast & New Cairo. Professional, responsive, results-driven." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://islamesmail-jpg.github.io/eslam-profile/" />
-  <meta property="og:image" content="profile.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eslam Mohamed - Real Estate Broker</title>
   <style>
-    :root { --gold:#f1c40f; --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364; --muted:#dbe4ea; --ink:#0b1220; }
-    body { margin:0; font-family: Arial, sans-serif; background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3)); color:#fff; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-    .card { width:min(960px,94%); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:28px; padding:28px 20px; text-align:center; box-shadow:0 16px 40px rgba(0,0,0,.35); }
-    .avatar { width:140px; height:140px; border-radius:50%; border:3px solid var(--gold); object-fit:cover; }
-    h1 { color:var(--gold); margin:12px 0 6px; font-size:2.2rem; }
-    .tag { display:inline-block; margin:.2rem .3rem; padding:.35rem .65rem; border:1px solid var(--gold); border-radius:999px; color:var(--gold); font-weight:700; font-size:.9rem; }
-    .bio { color:#e9eef4; max-width:720px; margin:6px auto 14px; line-height:1.7; }
-    .btn { text-decoration:none; color:var(--gold); border:1px solid var(--gold); border-radius:999px; padding:10px 18px; font-weight:800; display:inline-block; margin:6px; transition:.2s; }
-    .btn:hover { background:var(--gold); color:var(--ink); }
-    footer { margin-top:16px; font-size:.9rem; color:var(--muted); }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+    }
+    h1 { margin: 10px 0; }
+    .content { padding: 20px; }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: goldenrod;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #c99700; }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #eee;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img src="profile.jpg" alt="Eslam Mohamed" class="avatar" />
-    <h1>Eslam Mohamed</h1>
-    <div>
-      <span class="tag">Ain Sokhna</span>
-      <span class="tag">North Coast</span>
-      <span class="tag">New Cairo</span>
-    </div>
-    <p class="bio">
-      Real Estate Broker helping clients buy, sell & invest in coastal and residential properties across Egypt.
+  <header>
+    <h1 id="title">Eslam Mohamed</h1>
+    <p id="subtitle">Real Estate Broker</p>
+    <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('ar')">العربية</button>
+  </header>
+
+  <div class="content">
+    <h2 id="about-title">About Me</h2>
+    <p id="about-text">
+      I am a professional real estate broker working in Ain Sokhna, North Coast, and New Cairo.
+      I help clients buy, sell, and invest in properties with trust and transparency.
     </p>
-    <div>
+
+    <h2 id="contact-title">Contact</h2>
+    <p id="contact-text">
+      📞 Phone: 01050072527 <br>
+      📧 Email: yourmail@example.com <br>
+      💬 <a href="https://wa.me/201050072527" target="_blank">Chat on WhatsApp</a>
+    </p>
+  </div>
+
+  <footer>
+    <p id="footer-text">© 2025 Eslam Mohamed - All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      if(lang === 'ar') {
+        document.getElementById("title").innerText = "اسلام محمد";
+        document.getElementById("subtitle").innerText = "بروكر عقارات";
+        document.getElementById("about-title").innerText = "عنّي";
+        document.getElementById("about-text").innerText = 
+          "أنا سمسار عقارات محترف أعمل في العين السخنة والساحل الشمالي والقاهرة الجديدة. أساعد العملاء في الشراء والبيع والاستثمار بثقة وشفافية.";
+        document.getElementById("contact-title").innerText = "وسائل التواصل";
+        document.getElementById("contact-text").innerHTML = 
+          "📞 هاتف: 01050072527 <br> 📧 إيميل: yourmail@example.com <br> 💬 <a href='https://wa.me/201050072527' target='_blank'>تحدث عبر واتساب</a>";
+        document.getElementById("footer-text").innerText = "© 2025 اسلام محمد - جميع الحقوق محفوظة.";
+      } else {
+        document.getElementById("title").innerText = "Eslam Mohamed";
+        document.getElementById("subtitle").innerText = "Real Estate Broker";
+        document.getElementById("about-title").innerText = "About Me";
+        document.getElementById("about-text").innerText = 
+          "I am a professional real estate broker working in Ain Sokhna, North Coast, and New Cairo. I help clients buy, sell, and invest in properties with trust and transparency.";
+        document.getElementById("contact-title").innerText = "Contact";
+        document.getElementById("contact-text").innerHTML = 
+          "📞 Phone: 01050072527 <br> 📧 Email: yourmail@example.com <br> 💬 <a href='https://wa.me/201050072527' target='_blank'>Chat on WhatsApp</a>";
+        document.getElementById("footer-text").innerText = "© 2025 Eslam Mohamed - All rights reserved.";
+      }
+    }
+  </script>
+</body>
+</html>    <div>
       <a class="btn" href="tel:+201050072527">📞 Call</a>
       <a class="btn" href="https://wa.me/201050072527?text=Hi%20Eslam%2C%20I'm%20interested%20in%20a%20property.">💬 WhatsApp</a>
       <a class="btn" href="mailto:youremail@example.com?subject=Property%20Inquiry">✉️ Email</a>
